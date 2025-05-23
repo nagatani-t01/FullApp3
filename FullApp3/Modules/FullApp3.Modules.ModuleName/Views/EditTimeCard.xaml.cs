@@ -1,17 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading;
 using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace FullApp3.Modules.TimeCard.Views
 {
@@ -23,6 +12,35 @@ namespace FullApp3.Modules.TimeCard.Views
         public EditTimeCard()
         {
             InitializeComponent();
+        }
+        private void CopyStartText_Click(object sender, RoutedEventArgs e)
+        {
+            ClipboardHelper.SetTextWithRetry(StartText.Text);
+        }
+        private void CopyEndText_Click(object sender, RoutedEventArgs e)
+        {
+            ClipboardHelper.SetTextWithRetry(EndText.Text);
+        }
+    }
+
+    public static class ClipboardHelper
+    {
+        public static void SetTextWithRetry(string text, int retryCount = 10, int delayMilliseconds = 100)
+        {
+            for (int i = 0; i < retryCount; i++)
+            {
+                try
+                {
+                    Clipboard.SetText(text);
+                    return;
+                }
+                catch (System.Runtime.InteropServices.COMException)
+                {
+                    Thread.Sleep(delayMilliseconds); // 少し待ってリトライ
+                }
+            }
+
+            MessageBox.Show("クリップボードにアクセスできませんでした。");
         }
     }
 }
