@@ -77,6 +77,11 @@ jobs:
       Wap_Project_Path: your-wap-project-path                   # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
 
     steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+
     # Start PostgreSQL container in WSL (on self-hosted runner)
     - name: Start PostgreSQL container
       shell: pwsh
@@ -107,10 +112,6 @@ jobs:
         } while ($retry -lt $maxRetries)
 
     
-    - name: Checkout
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
 
     # Install the .NET Core workload
     - name: Install .NET Core
