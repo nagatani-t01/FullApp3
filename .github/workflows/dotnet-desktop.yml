@@ -77,6 +77,36 @@ jobs:
       Wap_Project_Path: your-wap-project-path                   # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
 
     steps:
+    # Start PostgreSQL container in WSL (on self-hosted runner)
+    - name: Start PostgreSQL container
+      shell: pwsh
+      run: |
+        wsl docker pull postgres:latest
+        wsl docker run --rm -d `
+          --name pgdb `
+          -e POSTGRES_PASSWORD=testpw `
+          -e POSTGRES_USER=root `
+          -p 5433:5432 `
+          postgres:latest
+
+    # Wait for PostgreSQL to be ready
+    - name: Wait for PostgreSQL to be ready
+      shell: pwsh
+      run: |
+        Start-Sleep -Seconds 10
+        $maxRetries = 10
+        $retry = 0
+        do {
+          $result = wsl docker exec pgdb pg_isready -U root
+          Write-Host "PostgreSQL readiness: $result"
+          if ($result -like "*accepting connections*") {
+            break
+          }
+          Start-Sleep -Seconds 2
+          $retry++
+        } while ($retry -lt $maxRetries)
+
+    
     - name: Checkout
       uses: actions/checkout@v4
       with:
