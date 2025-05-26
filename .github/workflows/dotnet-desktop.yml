@@ -85,19 +85,19 @@ jobs:
 
     # Start PostgreSQL container in WSL (on self-hosted runner)
     - name: Start PostgreSQL container
-      shell: pwsh
+      shell: bash
       run: |
         wsl docker pull postgres:latest
         wsl docker run --rm -d `
           --name pgdb `
           -e POSTGRES_PASSWORD=testpw `
           -e POSTGRES_USER=root `
-          -p 5433:5432 `
+          -p 5434:5432 `
           postgres:latest
 
     # Wait for PostgreSQL to be ready
     - name: Wait for PostgreSQL to be ready
-      shell: pwsh
+      shell: bash
       run: |
         Start-Sleep -Seconds 10
         $maxRetries = 10
