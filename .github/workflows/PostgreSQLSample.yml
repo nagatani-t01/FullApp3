@@ -3,7 +3,7 @@ name: PostgreSQL + WPF Build (All Self-hosted)
 on: push
 
 jobs:
-  node-postgres-test:
+  postgres-test:
     runs-on: [self-hosted, Linux, wsl]  # WSL 環境で動作する self-hosted runner
     container: ubuntu:20.04
     services:
@@ -22,7 +22,7 @@ jobs:
   build-wpf:
     runs-on: [self-hosted, Windows]  # Windows 上で動作する self-hosted runner
     # `node-postgres-test` 完了後に実行
-    needs: node-postgres-test
+    needs: postgres-test
     steps:
       - uses: actions/checkout@v4
 
