@@ -7,8 +7,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: test0
-        run: |
-          Get-ExecutionPolicy -List
+        run: Get-ExecutionPolicy -List
       - name: test01
         run: |
           Set-ExecutionPolicy Bypass -Scope Process -Force
