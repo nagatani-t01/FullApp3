@@ -9,7 +9,6 @@ jobs:
     # Docker Hub image that `container-job` executes in
 
     steps:
-      - run: wsl
       - name: Check out repository code
         uses: actions/checkout@v4
 #        with:
