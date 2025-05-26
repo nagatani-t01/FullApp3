@@ -14,5 +14,5 @@ jobs:
             & $_.FullName
           }
           ls -a
-          echo "" 
-          git branch -a
+#          echo "" 
+#          git branch -a
