@@ -1,18 +1,19 @@
-name: PostgreSQL service example
+name: main
 on: workflow_dispatch
 
 jobs:
+  aaa:
   # Label of the container job
     # Containers must run in Linux based operating systems
-  runs-on: self-hosted
+    runs-on: self-hosted
     # Docker Hub image that `container-job` executes in
 
-  steps:
-    - run: wsl
-#      - name: Check out repository code
-#        uses: actions/checkout@v4
+    steps:
+      - run: wsl
+      - name: Check out repository code
+        uses: actions/checkout@v4
 #        with:
 #          fetch-depth: 0
       
-    - run: echo "step1"
-    - run: echo $PWD
+      - run: echo "step1"
+      - run: echo $PWD
