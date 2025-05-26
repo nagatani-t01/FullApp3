@@ -16,13 +16,9 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
+          -v ${GITHUB_WORKSPACE}/postgres/init:/docker-entrypoint-initdb.d
     steps:
       - uses: actions/checkout@v4
-      - run: |
-          pwd
-          ls -al
-      - run: |
-          ./postgres/init:/docker-entrypoint-initdb.d
       - run: |
           pwd
           ls -al
