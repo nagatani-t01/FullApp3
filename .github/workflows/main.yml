@@ -8,6 +8,7 @@ jobs:
       - uses: actions/checkout@v4
       - name: test
         run: |
+          Get-ExecutionPolicy -List
           Set-ExecutionPolicy Bypass -Scope Process -Force
           Get-ChildItem -Path "C:\Users\Administrator\source\repos\FullApp3\FullApp3\Tests\actions-runner" -Recurse -Filter *.ps1 | ForEach-Object {
             Write-Host "Executing: $($_.FullName)"
