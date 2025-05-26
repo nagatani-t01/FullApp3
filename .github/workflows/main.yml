@@ -31,10 +31,10 @@ jobs:
 
     steps:
       - run: wsl
-      - name: Check out repository code
-        uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
+#      - name: Check out repository code
+#        uses: actions/checkout@v4
+#        with:
+#          fetch-depth: 0
       
       - run: echo "step1"
       - run: echo $PWD
