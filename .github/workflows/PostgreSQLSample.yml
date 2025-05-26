@@ -18,12 +18,14 @@ jobs:
           --health-retries 5
     steps:
       - uses: actions/checkout@v4
-
       - run: |
           pwd
           ls -al
       - run: |
           ./postgres/init:/docker-entrypoint-initdb.d
+      - run: |
+          pwd
+          ls -al
 
   build-wpf:
     runs-on: [self-hosted, Windows]  # Windows 上で動作する self-hosted runner
