@@ -7,7 +7,6 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: test
-        shell: pwsh
         run: |
           ls -a
           echo "" 
