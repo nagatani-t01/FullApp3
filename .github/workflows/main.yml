@@ -18,6 +18,10 @@ jobs:
         # Provide the password for postgres
         env:
           POSTGRES_PASSWORD: postgres
+          Solution_Name: FullApp3.sln                         # Replace with your solution name, i.e. MyWpfApp.sln.
+          Test_Project_Path: FullApp3.Modules.TimeCard.Tests.csproj                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
+          Wap_Project_Directory: your-wap-project-directory-name    # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
+          Wap_Project_Path: your-wap-project-path                   # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
         # Set health checks to wait until postgres has started
         options: >-
           --health-cmd pg_isready
@@ -28,5 +32,8 @@ jobs:
     steps:
       - name: Check out repository code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+      
       - run: echo "step1"
       - run: echo $PWD
