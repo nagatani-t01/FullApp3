@@ -1,11 +1,10 @@
-name: PostgreSQL + WPF Build
+name: PostgreSQL + WPF Build (All Self-hosted)
 
 on: push
 
 jobs:
-  # Linuxコンテナ + PostgreSQL テスト（WSL上のself-hosted runner）
   node-postgres-test:
-    runs-on: self-hosted  # WSL2 上にセットした Linux runner
+    runs-on: [self-hosted, linux, wsl]  # WSL 環境で動作する self-hosted runner
     container: node:20-bookworm-slim
     services:
       postgres:
@@ -20,18 +19,10 @@ jobs:
     steps:
       - uses: actions/checkout@v4
 
-#      - name: Install dependencies
-#        run: npm ci
-
-#      - name: Run client.js
-#        run: node client.js
-#        env:
-#          POSTGRES_HOST: postgres
-#          POSTGRES_PORT: 5432
-
-  # Windows上でWPFアプリをビルドする
   build-wpf:
-    runs-on: windows-latest  # GitHub公式のWindows runnerを使用
+    runs-on: [self-hosted, windows]  # Windows 上で動作する self-hosted runner
+    # `node-postgres-test` 完了後に実行
+    needs: node-postgres-test
     steps:
       - uses: actions/checkout@v4
 
