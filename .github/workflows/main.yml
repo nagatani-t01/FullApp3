@@ -1,9 +1,12 @@
-name: main
-on: workflow_dispatch
-
+name: Sample workflow bra1
+on:
+  push:
 jobs:
-  build:
+  bra1:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - run: echo "Windowsでビルド"
+      - run: |
+          ls -a
+          echo "" 
+          git branch -a
