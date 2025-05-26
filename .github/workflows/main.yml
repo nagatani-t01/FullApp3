@@ -1,7 +1,5 @@
-name: Sample workflow bra1
-on:
-  workflow_dispatch:
-  
+name: main
+on: workflow_dispatch
 jobs:
   bra1:
     runs-on: ubuntu-latest
