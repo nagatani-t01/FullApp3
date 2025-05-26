@@ -22,6 +22,8 @@ jobs:
       - run: |
           pwd
           ls -al
+      - run: |
+          ./postgres/init:/docker-entrypoint-initdb.d
 
   build-wpf:
     runs-on: [self-hosted, Windows]  # Windows 上で動作する self-hosted runner
