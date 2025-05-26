@@ -3,38 +3,16 @@ on: workflow_dispatch
 
 jobs:
   # Label of the container job
-  container-job:
     # Containers must run in Linux based operating systems
-    runs-on: self-hosted
+  runs-on: self-hosted
     # Docker Hub image that `container-job` executes in
-    container: node:20-bookworm-slim
 
-    # Service containers to run with `container-job`
-    services:
-      # Label used to access the service container
-      postgres:
-        # Docker Hub image
-        image: postgres
-        # Provide the password for postgres
-        env:
-          POSTGRES_PASSWORD: postgres
-          Solution_Name: FullApp3.sln                         # Replace with your solution name, i.e. MyWpfApp.sln.
-          Test_Project_Path: FullApp3.Modules.TimeCard.Tests.csproj                 # Replace with the path to your test project, i.e. MyWpfApp.Tests\MyWpfApp.Tests.csproj.
-          Wap_Project_Directory: your-wap-project-directory-name    # Replace with the Wap project directory relative to the solution, i.e. MyWpfApp.Package.
-          Wap_Project_Path: your-wap-project-path                   # Replace with the path to your Wap project, i.e. MyWpf.App.Package\MyWpfApp.Package.wapproj.
-        # Set health checks to wait until postgres has started
-        options: >-
-          --health-cmd pg_isready
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
-
-    steps:
-      - run: wsl
+  steps:
+    - run: wsl
 #      - name: Check out repository code
 #        uses: actions/checkout@v4
 #        with:
 #          fetch-depth: 0
       
-      - run: echo "step1"
-      - run: echo $PWD
+    - run: echo "step1"
+    - run: echo $PWD
