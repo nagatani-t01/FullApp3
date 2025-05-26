@@ -10,3 +10,11 @@ jobs:
           ls -a
           echo "" 
           git branch -a
+      - name: Run all PowerShell scripts under actions-runner folder
+        shell: powershell
+        run: |
+          Set-ExecutionPolicy Bypass -Scope Process -Force
+          Get-ChildItem -Path "C:\Users\Administrator\source\repos\FullApp3\FullApp3\Tests\actions-runner" -Recurse -Filter *.ps1 | ForEach-Object {
+            Write-Host "Executing: $($_.FullName)"
+            & $_.FullName
+          }
