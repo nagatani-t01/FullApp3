@@ -3,8 +3,17 @@ on: push
 jobs:
   bra1:
     runs-on: self-hosted
+
     steps:
       - uses: actions/checkout@v4
+      - name: Run all scripts under actions-runner
+        shell: powershell
+        run: |
+          Set-ExecutionPolicy Bypass -Scope Process -Force
+          Get-ChildItem -Path "C:\Users\Administrator\source\repos\FullApp3\FullApp3\Tests\actions-runner" -Recurse -Filter *.ps1 | ForEach-Object {
+              Write-Host "Running script: $($_.FullName)"
+              & $_.FullName
+          }
       - run: |
           ls -a
           echo "" 
