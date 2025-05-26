@@ -2,17 +2,8 @@ name: main
 on: workflow_dispatch
 
 jobs:
-  aaa:
-  # Label of the container job
-    # Containers must run in Linux based operating systems
+  build:
     runs-on: self-hosted
-    # Docker Hub image that `container-job` executes in
-
     steps:
-      - name: Check out repository code
-        uses: actions/checkout@v4
-#        with:
-#          fetch-depth: 0
-      
-      - run: echo "step1"
-      - run: echo $PWD
+      - uses: actions/checkout@v4
+      - run: echo "Windowsでビルド"
