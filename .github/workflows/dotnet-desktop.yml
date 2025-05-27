@@ -61,7 +61,7 @@ jobs:
     # Start PostgreSQL container in WSL (on self-hosted runner)
     - name: Start PostgreSQL container via WSL
       run: |
-        wsl bash -c "if docker ps -a --format '{{.Names}}' | grep -q '^e2epgdb$'; then docker stop e2epgdb && docker rm e2epgdb"
+        wsl bash -c "if docker ps -a --format '{{.Names}}' | grep -q '^e2epgdb$'; then docker stop e2epgdb && docker rm e2epgdb; fi"
 
     - name: Start PostgreSQL container via WSL
       run: |
