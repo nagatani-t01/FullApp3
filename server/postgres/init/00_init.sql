@@ -1,11 +1,11 @@
 -- DB作成
-CREATE DATABASE test_db;
+CREATE DATABASE e2etest_db;
 
 --ユーザーの作成
 CREATE USER psuser WITH PASSWORD 'testpass';
 
 -- 作成したDBに接続
-\c bip_db;
+\c e2etest_db;
 
 CREATE TABLE users (
 	user_id serial NOT NULL,
