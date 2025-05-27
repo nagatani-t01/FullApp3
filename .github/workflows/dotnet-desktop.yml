@@ -84,7 +84,6 @@ jobs:
           $retry++
         } while ($retry -lt $maxRetries)
 
-    
 
     # Install the .NET Core workload
     - name: Install .NET Core
