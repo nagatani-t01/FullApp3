@@ -49,6 +49,7 @@ jobs:
     # Start PostgreSQL container in WSL (on self-hosted runner)
     - name: Start PostgreSQL container via WSL
       run: |
+        wsl bash -c "pwd;ls"
         wsl bash -c "docker run -d --name e2epgdb \
           -e POSTGRES_PASSWORD=testpw \
           -e POSTGRES_USER=root \
