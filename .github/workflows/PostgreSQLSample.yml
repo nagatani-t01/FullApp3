@@ -8,7 +8,7 @@ jobs:
     container: ubuntu:20.04
     services:
       postgres:
-        image: postgres
+        image: postgres:16
         env:
           POSTGRES_PASSWORD: postgres
         options: >-
@@ -16,13 +16,13 @@ jobs:
           --health-interval 10s
           --health-timeout 5s
           --health-retries 5
-          -v ${GITHUB_WORKSPACE}/postgres/init:/docker-entrypoint-initdb.d
 
     steps:
       - uses: actions/checkout@v4
       - run: |
           pwd
           ls -al
+          ls -al ${GITHUB_WORKSPACE}
 
   build-wpf:
     runs-on: [self-hosted, Windows]  # Windows 上で動作する self-hosted runner
