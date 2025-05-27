@@ -46,6 +46,10 @@ jobs:
       with:
         fetch-depth: 0
 
+    - name: Set PowerShell execution policy
+      run: Set-ExecutionPolicy RemoteSigned -Scope Process -Force
+      shell: powershell
+
     - name: disp home
       run: |
         wsl bash -c "pwd"
