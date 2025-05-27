@@ -46,9 +46,11 @@ jobs:
       with:
         fetch-depth: 0
 
-    - name: Set PowerShell execution policy
-      run: Set-ExecutionPolicy RemoteSigned -Scope Process -Force
-      shell: powershell
+    - name: powershell allow...
+      shell: cmd
+      run: powershell -Command "Set-ExecutionPolicy RemoteSigned -Scope CurrentUser"
+    - name: check powershell version
+      run: $host.Version
 
     - name: disp home
       run: |
