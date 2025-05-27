@@ -56,8 +56,8 @@ jobs:
       run: |
         wsl bash -c "pwd"
         wsl bash -c "ls"
-        wsl bash -c "echo server"
-        wsl bash -c "ls ./server/"
+        wsl bash -c "echo initの下"
+        wsl bash -c "ls ./server/postgres/init/"
 
     # Start PostgreSQL container in WSL (on self-hosted runner)
     - name: Start PostgreSQL container via WSL
