@@ -66,24 +66,6 @@ jobs:
       run: |
         wsl bash -c "docker run -d --name e2epgdb -e POSTGRES_PASSWORD=testpw -e POSTGRES_USER=root -p 5434:5432 -v ./server/postgres/init:/docker-entrypoint-initdb.d --health-cmd 'pg_isready' --health-interval 10s --health-timeout 5s --health-retries 5 postgres:16"
 
-    # Wait for PostgreSQL to be ready
-    - name: Wait for PostgreSQL to be ready
-      shell: bash
-      run: |
-        Start-Sleep -Seconds 10
-        $maxRetries = 10
-        $retry = 0
-        do {
-          $result = wsl docker exec e2epgdb pg_isready -U root
-          Write-Host "PostgreSQL readiness: $result"
-          if ($result -like "*accepting connections*") {
-            break
-          }
-          Start-Sleep -Seconds 2
-          $retry++
-        } while ($retry -lt $maxRetries)
-
-
     # Install the .NET Core workload
     - name: Install .NET Core
       uses: actions/setup-dotnet@v4
