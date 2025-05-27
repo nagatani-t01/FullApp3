@@ -48,7 +48,9 @@ jobs:
 
     - name: disp home
       run: |
-        wsl bash -c "pwd;ls;echo $HOME"
+        wsl bash -c "pwd"
+        wsl bash -c "ls"
+        wsl bash -c "echo $HOME"
 
     # Start PostgreSQL container in WSL (on self-hosted runner)
     - name: Start PostgreSQL container via WSL
