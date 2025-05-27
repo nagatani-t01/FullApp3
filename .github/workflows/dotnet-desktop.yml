@@ -59,7 +59,7 @@ jobs:
         wsl bash -c "ls ./server/postgres/init/"
 
     # Start PostgreSQL container in WSL (on self-hosted runner)
-    - name: Start PostgreSQL container via WSL
+    - name: remove container via WSL
       run: |
         wsl bash -c "if docker ps -a --format '{{.Names}}' | grep -q '^e2epgdb$'; then docker stop e2epgdb && docker rm e2epgdb; fi"
 
