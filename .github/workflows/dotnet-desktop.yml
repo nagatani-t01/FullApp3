@@ -94,7 +94,7 @@ jobs:
           -e POSTGRES_PASSWORD=testpw `
           -e POSTGRES_USER=root `
           -p 5434:5432 `
-          postgres:latest
+          postgres:16
 
     - name: Start PostgreSQL container via WSL
       run: |
