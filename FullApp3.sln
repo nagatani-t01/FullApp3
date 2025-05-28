@@ -26,6 +26,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "doc", "doc", "{44C9631B-941
 		設計書.md = 設計書.md
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PostgreSqlClassLibrary", "PostgreSqlClassLibrary\PostgreSqlClassLibrary.csproj", "{CC2E3A5F-7A22-4721-8AD6-81062806CCB6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "E2E", "E2E", "{DDB4EF12-CC4E-5E88-E6FC-71A802F4DE97}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -56,6 +60,10 @@ Global
 		{48D21A7B-611B-42DC-BAE6-BCD42C4347C0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{48D21A7B-611B-42DC-BAE6-BCD42C4347C0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{48D21A7B-611B-42DC-BAE6-BCD42C4347C0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CC2E3A5F-7A22-4721-8AD6-81062806CCB6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CC2E3A5F-7A22-4721-8AD6-81062806CCB6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CC2E3A5F-7A22-4721-8AD6-81062806CCB6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CC2E3A5F-7A22-4721-8AD6-81062806CCB6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -66,6 +74,7 @@ Global
 		{CF2A9634-6D38-4DB9-BA83-453A017767DC} = {D409A7FA-4934-415A-AE7D-83931A5DE161}
 		{F00BC7D4-1307-4B7D-8CE4-0629A45AF85C} = {D409A7FA-4934-415A-AE7D-83931A5DE161}
 		{44C9631B-9416-4482-BE0A-B8C28C8A6E79} = {5F983E66-CB45-47A0-BFDD-178157047F40}
+		{DDB4EF12-CC4E-5E88-E6FC-71A802F4DE97} = {90AB706C-E49A-425C-92BB-BDF177A60425}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {F8C9CF3A-C52E-45D0-B7B5-E6AE419C63CF}
