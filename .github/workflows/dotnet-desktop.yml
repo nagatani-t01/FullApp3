@@ -49,11 +49,11 @@ jobs:
             # - name: check powershell version
             #   run: $host.Version
 
-            # - name: disp home
-            #   run: |
-            #       wsl bash -c "pwd"
-            #       wsl bash -c "ls"
-            #       wsl bash -c "ls ./server/postgres/init/"
+            - name: disp home
+              run: |
+                  wsl bash -c "pwd"
+                  wsl bash -c "ls"
+                  wsl bash -c "ls ./server/postgres/init/"
 
             # Start PostgreSQL container in WSL (on self-hosted runner)
             # - name: remove container via WSL
@@ -91,7 +91,7 @@ jobs:
             - name: Setup MSBuild.exe
               uses: microsoft/setup-msbuild@v2
             - name: Build app for release
-              run: msbuild FullApp3.Modules.TimeCard.Tests.csproj -t:rebuild -verbosity:diag -property:Configuration=Release
+              run: msbuild ./FullApp3/Modules/TimeCard/Tests.csproj -t:rebuild -verbosity:diag -property:Configuration=Release
 
             # Execute all unit tests in the solution
             # - name: Execute unit tests
