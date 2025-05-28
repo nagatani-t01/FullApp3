@@ -93,15 +93,13 @@ jobs:
             - name: Build app using dotnet msbuild
               run: dotnet msbuild ./FullApp3/FullApp3/FullApp3.csproj -t:Rebuild -p:Configuration=Release
 
-            - name: Run E2E test (FlaUI)
-              run: dotnet test ./FullApp3/Modules/FullApp3.Modules.ModuleName/FullApp3.Modules.TimeCard.csproj --configuration Release
-            # - name: Run E2E test (FlaUI)
-            #   run: dotnet test ./FullApp3/Modules/FullApp3.Modules.ModuleName/FullApp3.Modules.TimeCard.csproj --configuration Release --filter "FullyQualifiedName~FullApp3.Modules.TimeCard.Tests.E2E.E2ETestClass"
+            - name: Publish WPF App
+              run: dotnet publish ./FullApp3/FullApp3/FullApp3.csproj -c Release -o ./FullApp3/PublishOutput
 
-            - name: Run E2E Test via EXE
-              run: |
-                  dotnet build FullApp3.Modules.TimeCard.Tests.csproj -c Release
-                  .\FullApp3.Modules.TimeCard.Tests.E2E\bin\Release\net6.0-windows\FullApp3.Modules.TimeCard.Tests.E2E.exe
+            - name: Run E2E test (FlaUI)
+              run: dotnet test FullApp3/Tests/FullApp3.Modules.ModuleName.Tests/FullApp3.Modules.TimeCard.Tests.csproj --configuration Release
+            # - name: Run E2E test (FlaUI)
+            #   run: dotnet test FullApp3/Tests/FullApp3.Modules.ModuleName.Tests/FullApp3.Modules.TimeCard.Tests.csproj --configuration Release --filter "FullyQualifiedName~FullApp3.Modules.TimeCard.Tests.E2E.E2ETestClass"
 
             # Execute all E2E tests in the solution
             # - name: Run E2E tests
