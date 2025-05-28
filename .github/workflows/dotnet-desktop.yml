@@ -98,6 +98,11 @@ jobs:
             # - name: Run E2E test (FlaUI)
             #   run: dotnet test ./FullApp3/Modules/FullApp3.Modules.ModuleName/FullApp3.Modules.TimeCard.csproj --configuration Release --filter "FullyQualifiedName~FullApp3.Modules.TimeCard.Tests.E2E.E2ETestClass"
 
+            - name: Run E2E Test via EXE
+              run: |
+                  dotnet build FullApp3.Modules.TimeCard.Tests.csproj -c Release
+                  .\FullApp3.Modules.TimeCard.Tests.E2E\bin\Release\net6.0-windows\FullApp3.Modules.TimeCard.Tests.E2E.exe
+
             # Execute all E2E tests in the solution
             # - name: Run E2E tests
             #   run: dotnet test FullApp3.Modules.TimeCard.Tests.csproj --configuration Release
