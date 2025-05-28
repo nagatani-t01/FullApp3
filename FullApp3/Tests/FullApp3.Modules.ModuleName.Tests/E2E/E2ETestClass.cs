@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.IO;
 using System.Threading;
 using Xunit;
+using Debug = System.Diagnostics.Debug;
 
 namespace FullApp3.Modules.TimeCard.Tests.E2E
 {
@@ -18,6 +19,8 @@ namespace FullApp3.Modules.TimeCard.Tests.E2E
 
         public E2ETestClass()
         {
+            Debug.WriteLine($"AppContext.BaseDirectory:{AppContext.BaseDirectory}");
+            Debug.WriteLine($"Environment.CurrentDirectory:{Environment.CurrentDirectory}");
             //StartPostgresContainer();
             //Thread.Sleep(5000); // PostgreSQL の起動待ち
 
@@ -28,6 +31,7 @@ namespace FullApp3.Modules.TimeCard.Tests.E2E
         [Fact]
         public void Test_SearchButtonClick_ShowsResults()
         {
+
             var mainWindow = _app.GetMainWindow(_automation);
             Thread.Sleep(10000);
 
