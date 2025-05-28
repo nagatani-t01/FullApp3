@@ -2,6 +2,7 @@
 using FlaUI.UIA3;
 using System;
 using System.Diagnostics;
+using System.Threading;
 using Xunit;
 
 namespace FullApp3.Modules.TimeCard.Tests.E2E
@@ -26,6 +27,7 @@ namespace FullApp3.Modules.TimeCard.Tests.E2E
         public void Test_SearchButtonClick_ShowsResults()
         {
             var mainWindow = _app.GetMainWindow(_automation);
+            Thread.Sleep(10000);
 
             //var button = mainWindow.FindFirstDescendant(cf => cf.ByAutomationId("SearchButton")).AsButton();
             //Assert.NotNull(button);
