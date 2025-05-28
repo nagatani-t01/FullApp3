@@ -94,7 +94,9 @@ jobs:
               run: dotnet msbuild ./FullApp3/FullApp3/FullApp3.csproj -t:Rebuild -p:Configuration=Release
 
             - name: Run E2E test (FlaUI)
-              run: dotnet test ./FullApp3/Modules/FullApp3.Modules.ModuleName/FullApp3.Modules.TimeCard.csproj --configuration Release --filter "FullyQualifiedName~FullApp3.Modules.TimeCard.Tests.E2E.E2ETestClass"
+              run: dotnet test ./FullApp3/Modules/FullApp3.Modules.ModuleName/FullApp3.Modules.TimeCard.csproj --configuration Release
+            # - name: Run E2E test (FlaUI)
+            #   run: dotnet test ./FullApp3/Modules/FullApp3.Modules.ModuleName/FullApp3.Modules.TimeCard.csproj --configuration Release --filter "FullyQualifiedName~FullApp3.Modules.TimeCard.Tests.E2E.E2ETestClass"
 
             # Execute all E2E tests in the solution
             # - name: Run E2E tests
