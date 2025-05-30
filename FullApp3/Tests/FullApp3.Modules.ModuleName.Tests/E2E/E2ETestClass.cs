@@ -20,11 +20,16 @@ namespace FullApp3.Modules.TimeCard.Tests.E2E
         {
             Console.WriteLine($"AppContext.BaseDirectory:{AppContext.BaseDirectory}");
             Console.WriteLine($"Environment.CurrentDirectory:{Environment.CurrentDirectory}");
-            //StartPostgresContainer();
-            //Thread.Sleep(5000); // PostgreSQL の起動待ち
 
-            _app = Application.Launch(_appPath);
-            _automation = new UIA3Automation();
+            try
+            {
+                _app = Application.Launch(_appPath);
+                _automation = new UIA3Automation();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine($"Failed to launch WPF app: {ex}");
+            }
         }
 
         [Fact]
