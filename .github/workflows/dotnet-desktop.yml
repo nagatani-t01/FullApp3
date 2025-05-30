@@ -72,6 +72,6 @@ jobs:
 
             - name: Run E2E test (FlaUI)
               # run: dotnet test FullApp3/Tests/FullApp3.Modules.ModuleName.Tests/FullApp3.Modules.TimeCard.Tests.csproj --configuration Release
-              run: dotnet test FullApp3\FullApp3\Tests\FullApp3.Modules.ModuleName.Tests\FullApp3.Modules.TimeCard.Tests.csproj
+              run: dotnet test FullApp3\Tests\FullApp3.Modules.ModuleName.Tests\FullApp3.Modules.TimeCard.Tests.csproj
 #
 #
