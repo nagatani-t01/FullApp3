@@ -12,7 +12,8 @@ namespace FullApp3.Modules.TimeCard.Tests.E2E
     {
         private readonly string _containerName = "xunit_pg_container";
         //private readonly string _appPath = @"FullApp3.exe";
-        private readonly string _appPath = Path.GetFullPath(@"..\..\..\..\..\FullApp3\bin\Release\net6.0-windows\FullApp3.exe");
+        //private readonly string _appPath = Path.GetFullPath(@"..\..\..\..\..\FullApp3\bin\Release\net6.0-windows\FullApp3.exe");
+        private readonly string _appPath = Path.GetFullPath(@"FullApp3.exe");
         private readonly Application _app;
         private readonly AutomationBase _automation;
 
