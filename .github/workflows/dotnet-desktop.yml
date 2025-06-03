@@ -74,6 +74,7 @@ jobs:
               # run: dotnet test FullApp3/Tests/FullApp3.Modules.ModuleName.Tests/FullApp3.Modules.TimeCard.Tests.csproj --configuration Release
               run: |
                   cd FullApp3\Tests\FullApp3.Modules.ModuleName.Tests
+                  pwd
                   dotnet test
 
 #
