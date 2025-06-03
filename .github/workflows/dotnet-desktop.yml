@@ -75,5 +75,5 @@ jobs:
               run: |
                   cd FullApp3\Tests\FullApp3.Modules.ModuleName.Tests
                   pwd 2>&1 | ForEach-Object { $_ | Out-File -FilePath "test-output.log" -Append }
-                  dotnet test --logger "console;verbosity=detailed" 2>&1 | Tee-Object -FilePath "test.log"
+                  dotnet 2>&1 | ForEach-Object { $_ | Out-File -FilePath "test-output.log" -Append }
                   echo "--- end ---" 2>&1 | ForEach-Object { $_ | Out-File -FilePath "test-output.log" -Append }
