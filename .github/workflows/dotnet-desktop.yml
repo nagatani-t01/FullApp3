@@ -76,3 +76,5 @@ jobs:
                   cd FullApp3\Tests\FullApp3.Modules.ModuleName.Tests
                   pwd
                   dotnet test
+                  pwd
+                  echo "--- end ---"
