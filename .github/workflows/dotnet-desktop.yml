@@ -61,6 +61,11 @@ jobs:
               with:
                   dotnet-version: 8.0.x
 
+            - name: Clean
+              run: dotnet clean --verbosity quiet
+            - name: Build
+              run: dotnet build --no-restore --configuration Debug
+
             # Add  MSBuild to the PATH: https://github.com/microsoft/setup-msbuild
             - name: Setup MSBuild.exe
               uses: microsoft/setup-msbuild@v2
@@ -69,6 +74,9 @@ jobs:
 
             - name: Publish WPF App
               run: dotnet publish ./FullApp3/FullApp3/FullApp3.csproj -c Release -o ./FullApp3/PublishOutput
+
+            - name: List tests
+              run: dotnet test --no-build --list-tests
 
             - name: Run E2E test (FlaUI)
               # run: dotnet test FullApp3/Tests/FullApp3.Modules.ModuleName.Tests/FullApp3.Modules.TimeCard.Tests.csproj --configuration Release
