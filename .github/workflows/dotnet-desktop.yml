@@ -74,7 +74,7 @@ jobs:
               # run: dotnet test FullApp3/Tests/FullApp3.Modules.ModuleName.Tests/FullApp3.Modules.TimeCard.Tests.csproj --configuration Release
               run: |
                   cd FullApp3\Tests\FullApp3.Modules.ModuleName.Tests
-                  pwd
-                  dotnet test
-                  pwd
-                  echo "--- end ---"
+                  pwd 2>&1 | Tee-Object -FilePath "gggggggtest-output.log"
+                  dotnet test 2>&1 | Tee-Object -FilePath "gggggggtest-output.log"
+                  pwd 2>&1 | Tee-Object -FilePath "gggggggtest-output.log"
+                  echo "--- end ---" 2>&1 | Tee-Object -FilePath "gggggggtest-output.log"
